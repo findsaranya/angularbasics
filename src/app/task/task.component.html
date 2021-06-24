@@ -1,0 +1,7 @@
+<button class="btn btn-primary" (click)="onHandleClick()">Add Task</button>
+<button class="btn btn-danger" (click)="onLogAll()">LogAll</button>
+<p *ngIf="show">task works!</p>
+
+<p *ngFor = "let logs of logall;let i = index;" [ngStyle]="{'background-color':i>=4 ? 'blue':'intial'}"
+    [ngClass]="{logIn:i>=4}"
+    >{{logs}}</p>

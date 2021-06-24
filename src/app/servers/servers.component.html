@@ -1,0 +1,28 @@
+<p>{{addServer}} {{serverCreationStatus}}</p>
+<!-- <div class="form-group">
+<label for="servername">ServerName</label>
+<input type="text" name="serverName" (input)="onHandleChange($event)" class="form-control" />
+</div> -->
+<div class="form-group">
+    <label for="servername">ServerName</label>
+    <input type="text" name="serverName" [(ngModel)] = "serverName" class="form-control" />
+</div>
+<div class="form-group">
+    <label for="servername">userName</label>
+    <input type="text" name="userName" [(ngModel)]="userName" class="form-control" />
+</div>
+<p>{{userName}} {{userVisible}}</p>
+<p *ngIf="userVisible;else NoServer">{{serverName}}</p>
+<ng-template #NoServer>
+    <p>Button Not Clicked!!</p>
+</ng-template>
+
+<button class="btn btn-warning"
+(click)="userName=''"
+[disabled] = "userName.length>0 ? false : true"
+>Add username</button>
+
+<button class="btn btn-success" (click)="onCreateServers()"
+[disabled]='!addServer'>clickMe!!</button>
+
+<app-server *ngFor="let server of servers"></app-server>
